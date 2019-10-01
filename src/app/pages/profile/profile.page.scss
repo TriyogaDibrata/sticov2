@@ -1,0 +1,52 @@
+.profile-header {
+    background-color: #64b5f6;
+    height: 25vh;
+}
+
+.profile-card {
+
+    margin-top : -13vh;
+
+    ion-card {
+        --background : #e3f2fd;
+        height: 220px;
+    }
+}
+
+.profile-card ion-card {
+    ion-avatar {
+        display: block;
+        margin: auto;
+        background: #64b5f6;
+
+        img {
+            margin-top: 40px;
+        }
+    }
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-reports{
+    margin-top: 20px;
+    font-size: 14pt;
+
+    .count-reports {
+        font-weight: bold;
+    }
+}
+
+.myreports-card {
+    background: #e3f2fd;
+    img {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+}
+
+.myreports-card .comments-count {
+    margin-top: 10px;
+}

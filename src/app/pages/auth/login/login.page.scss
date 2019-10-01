@@ -1,0 +1,38 @@
+ion-content {
+    --background: #212121;
+}
+
+ion-item {
+    --background: transparent;
+    --border-color: var(--ion-color-light, #ffffff);
+    --highlight-color-focused: #ffffff;
+}
+
+ion-input {
+    --color: #ffffff;
+}
+
+.login-content {
+    margin-top: 12vh;
+}
+
+.logo {
+    img{
+        width: 30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.text-logo {
+    color: #ffffff;
+    margin-top: 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.forgot-pass {
+    color: #ffffff;
+    font-weight: bold;
+}

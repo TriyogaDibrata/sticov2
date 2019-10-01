@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-chip color="light" (click)="save()">
+        <ion-label>Kirim</ion-label>
+        <ion-icon name="send"></ion-icon>
+      </ion-chip>
+    </ion-buttons>
+    <ion-title>Lapor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-s="12" size-md="8" size-xl="6">
+
+      <ion-item no-padding>
+        <ion-label position="stacked">Topik</ion-label>
+        <ion-textarea type="text" di="topik" name="topik" [(ngModel)]="topik" autofocus autocapitalize required>
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item no-padding>
+        <ion-label position="stacked">Kategori</ion-label>
+        <ion-select [(ngModel)]="kategori_id" value="brown" okText="Select" cancelText="Cancel">
+          <ion-select-option *ngFor="let cat of categories" [value]="cat.id">{{ cat.kategori }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item no-padding>
+        <ion-label position="stacked">Uraian</ion-label>
+        <ion-textarea type="text" di="uraian" name="uraian" [(ngModel)]="uraian" autocapitalize autoGrow="true"
+          required></ion-textarea>
+      </ion-item>
+
+      <div class="btn-photo" (click)="selectPhoto()">
+        <ion-row>
+          <ion-col size="12">
+            <ion-icon name="add-circle" size="large"></ion-icon>
+          </ion-col>
+          <ion-col size="12">
+            <ion-text>Tambahkan Gambar</ion-text>
+          </ion-col>
+        </ion-row>
+      </div>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let photo of photos; let id = index">
+            <ion-card class="block">
+              <ion-icon name="close-circle" class="delete-icon" (click)="deletePhoto(id)"></ion-icon>
+              <img [src]="photo" *ngIf="photo" />
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-header">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6" size-x="6">
+        <ion-chip class="ion-float-right">
+          <ion-icon name="create" color="light"></ion-icon>
+          <ion-label color="light">Edit Profile</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="profile-card" *ngIf="user">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" size-md="5" size-xl="5">
+        <ion-card>
+          <ion-avatar>
+            <img src="assets/icon/example-user.png" />
+          </ion-avatar>
+          <div class="user-name ion-text-center">
+            <ion-text>{{  user.name }}</ion-text>
+          </div>
+          <div class="user-email ion-text-center">
+            <ion-text>{{ user.email }}</ion-text>
+          </div>
+          <div class="user-reports ion-text-center">
+            <ion-text class="count-reports">{{ count_lists }}</ion-text>
+            <br />
+            <ion-text>Posts</ion-text>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="myreports-wrapper">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" size-xs="6" size-md="4" size-xl="3" *ngFor="let list of mylists">
+        <ion-card class="myreports-card" padding>
+          <img src="assets/icon/favicon.png" />
+          <ion-card-subtitle class="ion-text-center">
+           {{  list.topik }}
+          </ion-card-subtitle>
+          <div class="ion-text-center comments-count">
+            <ion-icon src="assets/icon/icon-chat.svg"></ion-icon>
+            <br />
+            <ion-text>{{ list.comments.length }} Komentar</ion-text>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

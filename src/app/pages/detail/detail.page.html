@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-justify-content-center ion-no-padding">
+    <ion-col size="12" size-md="6" size-xl="6" class="ion-no-padding">
+      <ion-card>
+        <ion-card-header>
+          <ion-avatar>
+            <img *ngIf="avatar" [src]="avatar" />
+            <img src="assets/icon/favicon.png" />
+          </ion-avatar>
+          <ion-card-subtitle>
+            <b>{{ nama_pelapor}}</b>
+            <br>
+            {{ tanggal }}
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div *ngIf="count_files > 0">
+            <img [src]="" />
+          </div>
+          <div *ngIf="count_files == 0">
+            <div class="empty-photo">
+              <p>Tidak Ada Gambar</p>
+            </div>
+          </div>
+          <h3>{{ topik }}</h3>
+          <ion-text>{{ uraian }}</ion-text>
+        </ion-card-content>
+        <div class="card-footer">
+          <ion-icon name="chatbubbles"></ion-icon>{{ count_comments }}
+          <ion-icon name="share" class="ion-float-right"></ion-icon>
+        </div>
+      </ion-card>
+
+      <ion-card class="comment-box">
+        <ion-card-header>
+          <ion-avatar>
+            <img *ngIf="avatar" [src]="avatar" />
+            <img src="assets/icon/favicon.png" />
+          </ion-avatar>
+          <ion-card-subtitle>
+            <b>{{ nama_pelapor}}</b>
+            <br>
+            {{ tanggal }}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-text>{{ uraian }}</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="9">
+        <ion-input placeholder="Masukan Komentar"></ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button>Kirim</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

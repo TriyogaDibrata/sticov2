@@ -1,0 +1,114 @@
+<ion-content>
+
+  <ion-grid class="login-content">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-s="10" size-md="6" size-xl="4">
+        <div class="logo">
+          <img src="assets/images/300x300.png">
+        </div>
+        <div class="ion-text-center text-logo">Register</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" size-s="10" size-md="6" size-xl="4">
+        <form [formGroup]="registerForm" #form="ngForm" (ngSubmit)="register(form)">
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="contact" color="warning"></ion-icon>
+              Name
+            </ion-label>
+            <ion-input type="text" id="name" name="name" formControlName="name" required></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('name').touched && registerForm.get('name').hasError('required')">
+            <div>
+              <ion-text color="danger">Nama tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="mail" color="warning"></ion-icon>
+              Email
+            </ion-label>
+            <ion-input type="email" id="email" name="email" formControlName="email" required></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">
+            <div>
+              <ion-text color="danger">Email tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          <div *ngIf="registerForm.get('email').hasError('pattern')">
+            <div>
+              <ion-text color="danger">Email tidak valid !</ion-text>
+            </div>
+          </div>
+          
+
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="card" color="warning"></ion-icon>
+              NIM
+            </ion-label>
+            <ion-input type="text" id="nim" name="nim" formControlName="nim" required></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('nim').touched && registerForm.get('nim').hasError('required')">
+            <div>
+              <ion-text color="danger">NIM tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          <div *ngIf="registerForm.get('nim').hasError('minlength')">
+            <div>
+              <ion-text color="danger">NIM harus terdiri dari 9 karakter !</ion-text>
+            </div>
+          </div>
+
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="lock" color="warning"></ion-icon>
+              Passowrd
+            </ion-label>
+            <ion-input type="password" id="password" name="password" formControlName="password" required></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')">
+            <div>
+              <ion-text color="danger">Password tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          <div *ngIf="registerForm.get('password').hasError('minlength')">
+            <div>
+              <ion-text color="danger">Password minimal terdiri dari 8 karakter !</ion-text>
+            </div>
+          </div>
+
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="lock" color="warning"></ion-icon>
+              Password Confirmation
+            </ion-label>
+            <ion-input type="password" name="c_password" id="c_password" formControlName="c_password"></ion-input>
+          </ion-item>
+          <div *ngIf="registerForm.get('c_password').touched && registerForm.get('c_password').hasError('required')">
+            <div>
+              <ion-text color="danger">Password tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          <div *ngIf="registerForm.get('c_password').touched && registerForm.controls['c_password'].errors?.matchPassword">
+            <div>
+              <ion-text color="danger">Password tidak sama !</ion-text>
+            </div>
+          </div>
+    
+          <ion-button type="submit" expand="block" shape="round" class="ion-margin"> Daftar </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <div class="text-14">Sudah memiliki akun? <a (click)="goTo('login')">Login</a></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

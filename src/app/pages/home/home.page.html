@@ -1,0 +1,59 @@
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6" size-xl="6">
+
+        <div *ngFor="let item of aduans">
+
+          <ion-card (click)="detail(item.id)">
+            <ion-card-header>
+              <ion-avatar>
+                <img src="assets/icon/favicon.png" />
+              </ion-avatar>
+              <ion-card-subtitle>
+                <b>{{ item.has_user.name }}</b>
+                <br>
+                {{ item.created_at }}
+              </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <div *ngIf="item.files.length > 0">
+                <img [src]="item.files[0].filepath" />
+              </div>
+              <div *ngIf="item.files.length == 0">
+                <div class="empty-photo">
+                  <p>Tidak Ada Gambar</p>
+                </div>
+              </div>
+              <h3>{{ item.topik }}</h3>
+              <ion-text class="ion-text-wrap">{{ item.uraian }}</ion-text>
+            </ion-card-content>
+            <div class="category-wrapper">
+              <ion-row [style.background]="item.color">
+                <ion-col class="ion-text-left">
+                  {{ item.status }}
+                </ion-col>
+                <ion-col class="ion-text-right">
+                  {{ item.kategori }}
+                </ion-col>
+              </ion-row>
+            </div>
+            <div class="card-footer">
+              <ion-icon name="chatbubbles"></ion-icon>{{ item['comments']['length'] }}
+              <ion-icon name="share" class="ion-float-right"></ion-icon>
+            </div>
+          </ion-card>
+
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-content>

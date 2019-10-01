@@ -1,0 +1,63 @@
+<ion-content>
+
+  <ion-grid class="login-content">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-s="10" size-md="6" size-xl="4">
+        <div class="logo">
+          <img src="assets/images/300x300.png">
+        </div>
+        <div class="ion-text-center text-logo">Test</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" size-s="10" size-md="6" size-xl="4">
+
+        <form [formGroup]="loginForm" #form="ngForm" (ngSubmit)="login(form)">
+
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="contact" color="warning"></ion-icon>
+              Email / NIM
+            </ion-label>
+            <ion-input type="text" id="email" name="email" formControlName="email" required></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">
+            <div>
+              <ion-text color="danger"><ion-icon name="alert" size="medium"></ion-icon> Email tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+
+          <ion-item no-padding>
+            <ion-label position="floating" color="light">
+              <ion-icon name="lock" color="warning"></ion-icon>
+              Password
+            </ion-label>
+            <ion-input type="password" id="password" name="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">
+            <div>
+              <ion-text color="danger"><ion-icon name="alert" size="medium"></ion-icon> Password tidak boleh kosong !</ion-text>
+            </div>
+          </div>
+          <div *ngIf="loginForm.get('password').hasError('minlength')">
+            <div>
+              <ion-text color="danger"><ion-icon name="alert" size="medium"></ion-icon> Password harus terdiri dari 8 karakter !</ion-text>
+            </div>
+          </div>
+
+          <div class="ion-text-right ion-margin-top forgot-pass">Lupa Password ?</div>
+          <ion-button expand="block" shape="round" class="ion-margin" type="submit"> Masuk </ion-button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <div class="text-14">Belum memiliki akun ? <a (click)="goTo('register')">Daftar</a></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
